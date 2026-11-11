@@ -5,7 +5,7 @@ Train word2vec models on three periodicals together, using the scripts from
 
 | Folder | Periodical | Issues | Words |
 |---|---|---|---|
-| `corpus/country-women` | *Country Women* (1972–79) | 31 | ~1.27 million |
+| `corpus/country-women` | *Country Women* (1972–79) | 31 | ~1.29 million |
 | `corpus/lesbian-connection` | *Lesbian Connection* (1974–89) | 78 | ~1.49 million |
 | `corpus/maize` | *Maize* (1990–98) | 29 | ~0.61 million |
 
@@ -60,5 +60,7 @@ pip install -r requirements.txt
   00 drops; check the neighbors for OCR fragments.
 - **Repeated material** (mastheads, subscription blurbs, LC's contact listings) can pull the
   neighbors of words in it. The text reuse scripts can find it if it gets in the way.
-- **`CountryWomen-undated-v1-no3`** is missing 22 of its 40 pages.
+- **41 Country Women pages are Tesseract OCR**, not Gemini (pages Gemini refused, 22 of them in
+  `CountryWomen-undated-v1-no3`). They keep printed line breaks and are rougher; see
+  `country-women-ocr/ocr-results/<issue>/tesseract-log.csv`.
 - **Results change a little every time you train.**

@@ -12,7 +12,8 @@ raw/country-women/ into the same layout:
         ->  corpus/country-women/CountryWomen-1974-01-no9.txt
 
 For each issue it:
-  - drops the page markers and [MISSING TRANSCRIPTION]
+  - drops the page markers, [MISSING TRANSCRIPTION], and the [Source: ...] line
+    on pages filled with Tesseract
   - drops the transcriber's notes that describe the page rather than quote it:
     [illegible], [stamp], [image ...], [drawing ...], music notes, arrows, ...
   - keeps the words inside notes that wrap printed or handwritten words, without
@@ -47,7 +48,8 @@ KEEP_WORDS = ["handwritten", "sideways text", "text sideways", "sideways", "vert
 DROP = ["illegible", "stamp", "image", "illustration", "drawing", "photo", "quarter note",
         "eighth note", "half note", "whole note", "treble clef", "bass clef", "sharp",
         "flat key", "arrow", "uparrow", "downarrow", "box outline", "asterisk",
-        "female symbol", "number", "artist signature", "logo"]
+        "female symbol", "number", "artist signature", "logo",
+        "source"]   # [Source: Tesseract OCR, not Gemini ...] on pages fill_with_tesseract.py filled
 
 # Warn about issues where more than this share of pages has no transcription.
 MISSING_WARNING = 0.10
