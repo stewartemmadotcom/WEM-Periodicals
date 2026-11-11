@@ -7,7 +7,7 @@ Train word2vec models on three periodicals together, using the scripts from
 |---|---|---|---|
 | `corpus/country-women` | *Country Women* (1972–79) | 31 | ~1.29 million |
 | `corpus/lesbian-connection` | *Lesbian Connection* (1974–89) | 78 | ~1.49 million |
-| `corpus/maize` | *Maize* (1990–98) | 29 | ~0.61 million |
+| `corpus/maize` | *Maize* (1983–98) | 50 | ~0.88 million |
 
 | Script | What it does | What you change |
 |---|---|---|
@@ -21,7 +21,8 @@ Train word2vec models on three periodicals together, using the scripts from
 ## Where the texts came from
 
 - `corpus/lesbian-connection/`: copies of `lc-word-embeddings/lc-clean/1974-1989/`, already cleaned
-- `corpus/maize/`: copies of `maize-word-embeddings/maize-clean/`, already cleaned
+- `corpus/maize/`: copies of `maize-word-embeddings/maize-clean/` (both periods, 1983-1989 and
+  1990-1998), already cleaned. Issue #10 is missing.
 - `raw/country-women/`: copies of `country-women-ocr/combined/`, the Gemini OCR. `00` cleans
   them into `corpus/country-women/` in the same layout as the other two (one paragraph per
   line, blank lines between).
@@ -50,11 +51,12 @@ pip install -r requirements.txt
 
 ## Things to keep in mind
 
-- **The sources differ in size.** Maize is under half the size of the other two, so the pooled
-  model leans toward LC's and Country Women's usage. The per-periodical Maize model will have
+- **The sources differ in size.** Maize is about two-thirds the size of the other two, so the
+  pooled model leans toward LC's and Country Women's usage. The per-periodical Maize model will have
   the smallest vocabulary. Use the same settings for every model you compare.
-- **They differ in time too.** Country Women (1972–79) and LC (1974–89) overlap in the 1970s,
-  but Maize (1990–98) comes after both. A difference between Maize and the other two may be a
+- **They differ in time too.** Country Women (1972–79) overlaps LC (1974–89) in the 1970s,
+  and Maize (1983–98) overlaps LC in the 1980s, but Country Women and Maize never overlap, and
+  most of Maize (29 of 50 issues) is from the 1990s. A difference between periodicals may be a
   difference between decades, not between magazines.
 - **They differ in OCR.** LC and Country Women were OCR'd with Gemini, Maize with Claude (and
   Tesseract for a few pages). Country Women has many `[illegible]` spots (about 9,400), which
