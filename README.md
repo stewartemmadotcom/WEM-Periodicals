@@ -53,8 +53,9 @@ pip install -r requirements.txt
 - **The sources differ in size.** Maize is under half the size of the other two, so the pooled
   model leans toward LC's and Country Women's usage. The per-periodical Maize model will have
   the smallest vocabulary. Use the same settings for every model you compare.
-- **They differ in time too.** Country Women (1972–79), LC (1974–89) and Maize (1990–98) barely
-  overlap with Maize, so a difference between periodicals may be a difference between decades.
+- **They differ in time too.** Country Women (1972–79) and LC (1974–89) overlap in the 1970s,
+  but Maize (1990–98) comes after both. A difference between Maize and the other two may be a
+  difference between decades, not between magazines.
 - **They differ in OCR.** LC and Country Women were OCR'd with Gemini, Maize with Claude (and
   Tesseract for a few pages). Country Women has many `[illegible]` spots (about 9,400), which
   00 drops; check the neighbors for OCR fragments.
