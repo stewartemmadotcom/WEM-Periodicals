@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+.DS_Store
+models/
+plots/
+# The periodical texts: JSTOR and archive scans, so not for a public repo
+corpus/
+raw/
